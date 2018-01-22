@@ -32,7 +32,7 @@
 
 int main(int argc, char**argv) {
     // Prints welcome message...
-    std::cout << "Welcome to Pi ..." << std::endl;
+    std::cout << "Welcome to Pi baby ..." << std::endl;
 
     // Prints arguments...
     if (argc > 1) {

@@ -128,7 +128,8 @@ help: .help-post
 .help-post: .help-impl
 # Add your post 'help' code here...
 
-
+run:
+	bash -c "./pi.sh"
 
 # include project implementation makefile
 include nbproject/Makefile-impl.mk
