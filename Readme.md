@@ -34,9 +34,19 @@ There, click on the "Build tools" tab and hit click on "Add" at the bottom.
 Fill in the pane like so:
 ![Build tools setup](/docs/build-tools.png "Build tools setup")
 
+## Beware The Gotcha
+
+As you can see, NetBeans asks for the "Base Directory". I thought that supplying the tool names would suffice, based on the base dir.
+For me at least, this did not work and Make complained about finding the tools.
+To solve it, I put the full path of the tools in the dialog _and_ added them again in the project's properties page.
+If you encounter the same problem, right click the project's root and select "properties".
+There, select "Build" and then "C Compiler" etc to add in the full paths:
+
+![Build tools paths](/docs/build-tools-paths.png "Build tools paths")
+
 # Running on a Pi
 
-Once you have somne code worthy of being run on the Pi, you transfer the executable to it and run it remotely:
+Once you have some code worthy of being run on the Pi, you transfer the executable to it and run it remotely:
 
 ```bash
 echo "Copying file"
@@ -58,6 +68,8 @@ Run the remote debugger:
 gdbserver :1234 welcome_1
 ```
 
+Here you're telling gdbserer to run the welcome app on port 1234.
+
 ## In NetBeans
 
 From the menu, select "Debug"/"Attach debugger" and fill in the form:
@@ -67,9 +79,17 @@ From the menu, select "Debug"/"Attach debugger" and fill in the form:
 'pi' is the pi's host name (I put mine in /etc/hosts)
 ':1234' is the port with which NetBeans will communicate on your Pi. This has to be the same port number that you selected in the `gdbserver` command above.
 
+![GDB server setup](/docs/gdbserver.png "GDB server setup")
+
 Hit OK, and a few seconds later, you will see NetBeans's debugger interface.
 Step through the exanple to see it in action. 
 
+![Debugging](/docs/debugging.png "Debugging")
+
+## Beware The Gotcha
+
+Unless specified otherwise, gdbdebugger will exit after a single run. That means you'll have to re-issue the gdbserver command for a subsequent session.
+ 
 # Access the example
 
 Please feel free to use, fork and improve this snippet, posted on [github](https://github.com/ihassin/cross-compile-macosx-pi).
@@ -77,4 +97,3 @@ Please feel free to use, fork and improve this snippet, posted on [github](https
 I hope you find the example useful!
 
 Happy hacking!
-
