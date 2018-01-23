@@ -56,7 +56,7 @@ ssh pi@pi -C "./welcome_1"
 
 ```
 
-# Remote debugging using NetyBeans
+# Remote debugging using NetBeans
 
 Step-debugging the code in NetBeans is a treat.
 
